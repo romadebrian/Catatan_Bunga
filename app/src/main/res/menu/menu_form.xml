@@ -4,5 +4,6 @@
     <item android:id="@+id/action_delete"
         android:title="@string/hapus"
         android:icon="@drawable/ic_clear"
-        app:showAsAction="always"/>
+        app:showAsAction="always"
+        android:visible="false"/>
 </menu>

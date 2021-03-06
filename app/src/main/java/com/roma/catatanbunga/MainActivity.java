@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setTitle("Notes");
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#8c5b4d\">" + getString(R.string.titleX) + "</font>"));
+        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.bar_up));
 
         rvNotes = (RecyclerView)findViewById(R.id.rv_notes);
         rvNotes.setLayoutManager(new LinearLayoutManager(this));

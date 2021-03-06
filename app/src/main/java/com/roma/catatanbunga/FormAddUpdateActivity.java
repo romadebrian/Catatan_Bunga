@@ -3,6 +3,7 @@ package com.roma.catatanbunga;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +24,7 @@ import java.util.Date;
 public class FormAddUpdateActivity extends AppCompatActivity
         implements View.OnClickListener{
     EditText edtTitle, edtDescription;
-    Button btnSubmit;
+    Button btnSubmit, btndelete;
 
     public static String EXTRA_NOTE = "extra_note";
     public static String EXTRA_POSITION = "extra_position";
@@ -48,6 +49,7 @@ public class FormAddUpdateActivity extends AppCompatActivity
         edtDescription = (EditText)findViewById(R.id.edt_description);
         btnSubmit = (Button)findViewById(R.id.btn_submit);
         btnSubmit.setOnClickListener(this);
+        btndelete = (Button)findViewById(R.id.btn_delete);
 
         noteHelper = new NoteHelper(this);
         noteHelper.open();
@@ -70,12 +72,25 @@ public class FormAddUpdateActivity extends AppCompatActivity
         }else{
             actionBarTitle = "Tambah";
             btnTitle = "Simpan";
+            btndelete.setVisibility(View.GONE);
         }
 
-        getSupportActionBar().setTitle(actionBarTitle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#8c5b4d\">" + actionBarTitle + "</font>"));
+//        getSupportActionBar().setTitle(actionBarTitle);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.bar_up));
 
         btnSubmit.setText(btnTitle);
+
+
+        btndelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAlertDialog(ALERT_DIALOG_DELETE);
+            }
+        });
+
+
     }
 
     @Override

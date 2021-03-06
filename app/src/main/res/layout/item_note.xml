@@ -45,4 +45,5 @@
                 android:id="@+id/tv_item_description"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 </LinearLayout>

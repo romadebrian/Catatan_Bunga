@@ -7,4 +7,6 @@
     <string name="date">Date</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
+    <string name="content_description_media">Catatan Bunga</string>
+    <string name="titleX">Catatan</string>
 </resources>
